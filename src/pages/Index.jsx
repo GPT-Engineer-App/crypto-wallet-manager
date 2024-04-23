@@ -37,28 +37,31 @@ const Index = () => {
   };
 
   return (
-    <Box p={5} bg="black">
+    <Box p={5} bg="black" textAlign="center">
+      <Heading color="white" size="xl">
+        {selectedBlockchain}
+      </Heading>
       <Heading mb={4} color="white">
         CoinConnection by JT
       </Heading>
       <Tabs isFitted variant="enclosed" border="2px" borderColor="blue.500">
         <TabList mb="1em">
-          <Tab>
+          <Tab fontWeight="bold" color="white">
             <FaWallet /> Wallet
           </Tab>
-          <Tab>
+          <Tab fontWeight="bold" color="white">
             <FaChartLine /> Charts
           </Tab>
-          <Tab>
+          <Tab fontWeight="bold" color="white">
             <FaUserCircle /> Profile
           </Tab>
-          <Tab>
+          <Tab fontWeight="bold" color="white">
             <FaExchangeAlt /> Exchange
           </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Select placeholder="Select Blockchain" onChange={(e) => handleLogin(e.target.value)}>
+            <Select placeholder="Select Blockchain" onChange={(e) => handleLogin(e.target.value)} color="white" fontWeight="bold">
               <option value="Bitcoin">Bitcoin</option>
               <option value="Ethereum">Ethereum</option>
               <option value="Cardano">Cardano</option>
@@ -89,7 +92,7 @@ const Index = () => {
                 <Tbody>
                   {Array.from({ length: 50 }).map((_, index) => (
                     <Tr key={index} color="white">
-                      <Td>Crypto {index + 1}</Td>
+                      <Td>{`Crypto ${index + 1}`}</Td>
                       <Td>${(index + 1) * 10}B</Td>
                       <Td>{((index % 3) - 1) * 0.3}%</Td>
                     </Tr>
@@ -100,22 +103,20 @@ const Index = () => {
           </TabPanel>
           <TabPanel>
             <Flex direction="column" align="center">
-              <Button
-                leftIcon={<FaWallet />}
-                colorScheme="blue"
-                onClick={() =>
-                  toast({
-                    title: "Wallet Added",
-                    description: "New wallet has been added to your profile.",
-                    status: "info",
-                    duration: 3000,
-                    isClosable: true,
-                  })
-                }
-              >
+              <Button leftIcon={<FaWallet />} colorScheme="blue" onClick={() => setIsModalOpen(true)}>
                 Add Wallet
               </Button>
-              <Button leftIcon={<FaSignOutAlt />} colorScheme="red" mt={4}>
+              <Button
+                leftIcon={<FaSignOutAlt />}
+                colorScheme="red"
+                mt={4}
+                onClick={() => {
+                  setWalletId("");
+                  setPassword("");
+                  setPassphrase("");
+                  setSelectedBlockchain("");
+                }}
+              >
                 Log Out
               </Button>
             </Flex>
