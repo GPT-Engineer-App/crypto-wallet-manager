@@ -37,9 +37,11 @@ const Index = () => {
   };
 
   return (
-    <Box p={5}>
-      <Heading mb={4}>CoinConnection by JT</Heading>
-      <Tabs isFitted variant="enclosed">
+    <Box p={5} bg="black">
+      <Heading mb={4} color="white">
+        CoinConnection by JT
+      </Heading>
+      <Tabs isFitted variant="enclosed" border="2px" borderColor="blue.500">
         <TabList mb="1em">
           <Tab>
             <FaWallet /> Wallet
@@ -70,34 +72,23 @@ const Index = () => {
             </Select>
           </TabPanel>
           <TabPanel>
-            <Box p={4} bg="gray.800" borderRadius="md" border="2px" borderColor="blue.500">
+            <Box p={4} bg="black" borderRadius="md" border="2px" borderColor="blue.500">
               <Text fontSize="lg" color="white">
                 Dynamic chart simulation showing cryptocurrency performance.
               </Text>
             </Box>
-            <Box overflowY="auto" maxHeight="500px" mt={4} bg="gray.800" border="2px" borderColor="blue.500">
-              <Table variant="simple">
+            <Box overflowY="auto" maxHeight="500px" mt={4} bg="black" border="2px" borderColor="blue.500">
+              <Table variant="simple" color="white">
                 <Thead>
                   <Tr>
-                    <Th>Cryptocurrency</Th>
-                    <Th>Market Cap</Th>
-                    <Th>Market Movement</Th>
+                    <Th color="white">Cryptocurrency</Th>
+                    <Th color="white">Market Cap</Th>
+                    <Th color="white">Market Movement</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                  <Tr>
-                    <Td>Bitcoin</Td>
-                    <Td>$800B</Td>
-                    <Td>+0.5%</Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Ethereum</Td>
-                    <Td>$400B</Td>
-                    <Td>+1.2%</Td>
-                  </Tr>
-                  // Adding more rows for top 50 cryptocurrencies as a simulation
                   {Array.from({ length: 50 }).map((_, index) => (
-                    <Tr key={index}>
+                    <Tr key={index} color="white">
                       <Td>Crypto {index + 1}</Td>
                       <Td>${(index + 1) * 10}B</Td>
                       <Td>{((index % 3) - 1) * 0.3}%</Td>
