@@ -61,7 +61,7 @@ const Index = () => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Select placeholder="Select Blockchain" onChange={(e) => handleLogin(e.target.value)} color="white" fontWeight="bold">
+            <Select placeholder="Select Blockchain" onChange={(e) => handleLogin(e.target.value)} color="white" fontWeight="bold" bg="black">
               <option value="Bitcoin">Bitcoin</option>
               <option value="Ethereum">Ethereum</option>
               <option value="Cardano">Cardano</option>
@@ -123,13 +123,13 @@ const Index = () => {
           </TabPanel>
           <TabPanel>
             <Flex align="center" justify="space-between">
-              <Select placeholder="From">
+              <Select placeholder="From" bg="black" color="white" fontWeight="bold">
                 <option value="BTC">Bitcoin (BTC)</option>
                 <option value="ETH">Ethereum (ETH)</option>
                 <option value="ADA">Cardano (ADA)</option>
               </Select>
               <FaExchangeAlt />
-              <Select placeholder="To">
+              <Select placeholder="To" bg="black" color="white" fontWeight="bold">
                 <option value="USD">US Dollar (USD)</option>
                 <option value="ETH">Ethereum (ETH)</option>
                 <option value="ADA">Cardano (ADA)</option>
