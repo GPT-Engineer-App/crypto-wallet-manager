@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useToast, Table, Thead, Tr, Th, Tbody, Td } from "@chakra-ui/react";
 import { FaChartLine, FaExchangeAlt, FaSignOutAlt, FaUserCircle, FaWallet } from "react-icons/fa";
 import { useState } from "react";
 
@@ -70,8 +70,38 @@ const Index = () => {
             </Select>
           </TabPanel>
           <TabPanel>
-            <Image src="https://images.unsplash.com/photo-1639389016237-85a1a16f76d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxjcnlwdG8lMjBjaGFydHxlbnwwfHx8fDE3MTM4ODg2MDJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Crypto Chart" />
-            <Text mt={2}>Live chart of the top 10 cryptocurrencies.</Text>
+            <Text fontSize="lg" p={4} bg="gray.200" borderRadius="md">
+              Dynamic chart showing cryptocurrency performance would be here.
+            </Text>
+            <Box overflowY="auto" maxHeight="300px" mt={4}>
+              <Table variant="simple">
+                <Thead>
+                  <Tr>
+                    <Th>Cryptocurrency</Th>
+                    <Th>Market Cap</Th>
+                    <Th>Market Movement</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td>Bitcoin</Td>
+                    <Td>$800B</Td>
+                    <Td>+0.5%</Td>
+                  </Tr>
+                  <Tr>
+                    <Td>Ethereum</Td>
+                    <Td>$400B</Td>
+                    <Td>+1.2%</Td>
+                  </Tr>
+                  <Tr>
+                    <Td>Cardano</Td>
+                    <Td>$40B</Td>
+                    <Td>-0.3%</Td>
+                  </Tr>
+                  {}
+                </Tbody>
+              </Table>
+            </Box>
           </TabPanel>
           <TabPanel>
             <Flex direction="column" align="center">
