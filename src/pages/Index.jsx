@@ -1,17 +1,29 @@
-import { Box, Button, Flex, Heading, Image, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useToast } from "@chakra-ui/react";
 import { FaChartLine, FaExchangeAlt, FaSignOutAlt, FaUserCircle, FaWallet } from "react-icons/fa";
+import { useState } from "react";
 
 const Index = () => {
   const toast = useToast();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [walletId, setWalletId] = useState("");
+  const [password, setPassword] = useState("");
+  const [passphrase, setPassphrase] = useState("");
+  const [selectedBlockchain, setSelectedBlockchain] = useState("");
 
   const handleLogin = (blockchain) => {
+    setSelectedBlockchain(blockchain);
+    setIsModalOpen(true);
+  };
+
+  const handleSubmit = () => {
     toast({
-      title: `Logged in to ${blockchain}`,
+      title: `Logged in to ${selectedBlockchain}`,
       description: "You have successfully logged into your wallet.",
       status: "success",
       duration: 5000,
       isClosable: true,
     });
+    setIsModalOpen(false);
   };
 
   const handleExchange = () => {
@@ -103,6 +115,23 @@ const Index = () => {
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Login to your Wallet</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Input placeholder="Wallet ID" value={walletId} onChange={(e) => setWalletId(e.target.value)} mb={4} />
+            <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} mb={4} />
+            <Input placeholder="Secret Passphrase" value={passphrase} onChange={(e) => setPassphrase(e.target.value)} mb={4} />
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+              Submit
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
