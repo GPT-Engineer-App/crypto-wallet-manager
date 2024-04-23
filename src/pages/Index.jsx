@@ -38,7 +38,7 @@ const Index = () => {
 
   return (
     <Box p={5}>
-      <Heading mb={4}>Crypto Dashboard</Heading>
+      <Heading mb={4}>CoinConnection by JT</Heading>
       <Tabs isFitted variant="enclosed">
         <TabList mb="1em">
           <Tab>
