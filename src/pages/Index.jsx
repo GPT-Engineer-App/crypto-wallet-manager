@@ -70,10 +70,12 @@ const Index = () => {
             </Select>
           </TabPanel>
           <TabPanel>
-            <Text fontSize="lg" p={4} bg="gray.200" borderRadius="md">
-              Dynamic chart showing cryptocurrency performance would be here.
-            </Text>
-            <Box overflowY="auto" maxHeight="300px" mt={4}>
+            <Box p={4} bg="gray.800" borderRadius="md" border="2px" borderColor="blue.500">
+              <Text fontSize="lg" color="white">
+                Dynamic chart simulation showing cryptocurrency performance.
+              </Text>
+            </Box>
+            <Box overflowY="auto" maxHeight="500px" mt={4} bg="gray.800" border="2px" borderColor="blue.500">
               <Table variant="simple">
                 <Thead>
                   <Tr>
@@ -93,12 +95,14 @@ const Index = () => {
                     <Td>$400B</Td>
                     <Td>+1.2%</Td>
                   </Tr>
-                  <Tr>
-                    <Td>Cardano</Td>
-                    <Td>$40B</Td>
-                    <Td>-0.3%</Td>
-                  </Tr>
-                  {}
+                  // Adding more rows for top 50 cryptocurrencies as a simulation
+                  {Array.from({ length: 50 }).map((_, index) => (
+                    <Tr key={index}>
+                      <Td>Crypto {index + 1}</Td>
+                      <Td>${(index + 1) * 10}B</Td>
+                      <Td>{((index % 3) - 1) * 0.3}%</Td>
+                    </Tr>
+                  ))}
                 </Tbody>
               </Table>
             </Box>
